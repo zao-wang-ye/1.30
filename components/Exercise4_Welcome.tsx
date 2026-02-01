@@ -1,21 +1,20 @@
 import React from 'react';
-import { FormData } from '../types';
+import { Exercise4Data } from '../types';
 import { Button } from './Button';
 
 interface Props {
-  data: FormData;
-  update: (field: keyof FormData, value: string) => void;
+  data: Exercise4Data;
+  update: (field: keyof Exercise4Data, value: any) => void;
   onNext: () => void;
 }
 
-export const Step0_Welcome: React.FC<Props> = ({ data, update, onNext }) => {
+export const Exercise4_Welcome: React.FC<Props> = ({ data, update, onNext }) => {
   const isValid = data.userName.trim().length > 0 && data.userNumber.trim().length > 0;
 
   return (
     <div className="flex flex-col h-full py-8">
       <div className="text-center mb-10">
-        <h1 className="text-3xl font-bold text-slate-900 mb-3">练习一</h1>
-        <h2 className="text-2xl font-bold text-primary mb-8">一、增强动机，投身改变</h2>
+        <h1 className="text-3xl font-bold text-slate-900 mb-8">练习四</h1>
         
         <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100 space-y-6 max-w-md mx-auto w-full mb-10 text-left">
           <div>
@@ -41,9 +40,12 @@ export const Step0_Welcome: React.FC<Props> = ({ data, update, onNext }) => {
         </div>
 
         <div className="text-left text-slate-700 space-y-4 leading-relaxed bg-white p-2 text-lg">
-          <p>
-            你将在次干预中了解到，为什么你改变行力的动机每天甚至每时每刻都在变化。现在将向你介绍一种行为改变理论。该理论认力，改变用药状况的动机分不同的阶段，并解释了在不同阶段动机如何影响你的康复进程。
-          </p>
+           <p>
+             在“智取”成瘾大脑的过程中，你将掌握的最强大的一项技能就是思维挑战，它可以将非理性思维转变为平衡的、现实的思维。你将学会用一种科学的方法纠正那些引诱你去用药的想法。
+           </p>
+           <p>
+             这些技能不仅可以用于戒瘾，也可以用于解决其他由非理性思维导致的问题，如抑郁情绪、焦虑情绪及其他情绪问题。你将学习用科学且现实的态度来理解和改变你的行为。
+           </p>
         </div>
       </div>
 

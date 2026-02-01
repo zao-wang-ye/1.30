@@ -1,21 +1,20 @@
 import React from 'react';
-import { FormData } from '../types';
+import { Exercise5Data } from '../types';
 import { Button } from './Button';
 
 interface Props {
-  data: FormData;
-  update: (field: keyof FormData, value: string) => void;
+  data: Exercise5Data;
+  update: (field: keyof Exercise5Data, value: any) => void;
   onNext: () => void;
 }
 
-export const Step0_Welcome: React.FC<Props> = ({ data, update, onNext }) => {
+export const Exercise5_Welcome: React.FC<Props> = ({ data, update, onNext }) => {
   const isValid = data.userName.trim().length > 0 && data.userNumber.trim().length > 0;
 
   return (
     <div className="flex flex-col h-full py-8">
       <div className="text-center mb-10">
-        <h1 className="text-3xl font-bold text-slate-900 mb-3">练习一</h1>
-        <h2 className="text-2xl font-bold text-primary mb-8">一、增强动机，投身改变</h2>
+        <h1 className="text-3xl font-bold text-slate-900 mb-8">练习五</h1>
         
         <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100 space-y-6 max-w-md mx-auto w-full mb-10 text-left">
           <div>
@@ -41,9 +40,20 @@ export const Step0_Welcome: React.FC<Props> = ({ data, update, onNext }) => {
         </div>
 
         <div className="text-left text-slate-700 space-y-4 leading-relaxed bg-white p-2 text-lg">
-          <p>
-            你将在次干预中了解到，为什么你改变行力的动机每天甚至每时每刻都在变化。现在将向你介绍一种行为改变理论。该理论认力，改变用药状况的动机分不同的阶段，并解释了在不同阶段动机如何影响你的康复进程。
-          </p>
+           <h2 className="text-xl font-bold text-slate-900 mb-2">管理愤怒情绪</h2>
+           <p>
+             你在怒气冲冲时是否无法保持冷静?大多数人都是这样。如果这种情况经常发生，而愤怒情绪又恰好是一个可能的复发触发点，那么在康复中你就需要掌握一些健康的应对工具和发泄渠道。
+           </p>
+           <p className="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-500 text-orange-900 font-medium my-4">
+             一定要记住:发火除了让你感到糟糕、带来复发风险，还有诸多坏处。
+           </p>
+           <p>如果你因愤怒提高音量或用其他有攻击性的方式发脾气时:</p>
+           <ul className="list-disc list-inside space-y-1 pl-2">
+             <li>你看起来就像是失去控制了</li>
+             <li>人们不会尊重或认真对待你要表达的内容</li>
+             <li>你得不到自己需要的东西</li>
+             <li>你还会失去自尊</li>
+           </ul>
         </div>
       </div>
 

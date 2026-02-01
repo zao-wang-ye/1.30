@@ -1,21 +1,20 @@
 import React from 'react';
-import { FormData } from '../types';
+import { Exercise6Data } from '../types';
 import { Button } from './Button';
 
 interface Props {
-  data: FormData;
-  update: (field: keyof FormData, value: string) => void;
+  data: Exercise6Data;
+  update: (field: keyof Exercise6Data, value: any) => void;
   onNext: () => void;
 }
 
-export const Step0_Welcome: React.FC<Props> = ({ data, update, onNext }) => {
+export const Exercise6_Welcome: React.FC<Props> = ({ data, update, onNext }) => {
   const isValid = data.userName.trim().length > 0 && data.userNumber.trim().length > 0;
 
   return (
     <div className="flex flex-col h-full py-8">
       <div className="text-center mb-10">
-        <h1 className="text-3xl font-bold text-slate-900 mb-3">练习一</h1>
-        <h2 className="text-2xl font-bold text-primary mb-8">一、增强动机，投身改变</h2>
+        <h1 className="text-3xl font-bold text-slate-900 mb-8">练习六</h1>
         
         <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100 space-y-6 max-w-md mx-auto w-full mb-10 text-left">
           <div>
@@ -41,9 +40,20 @@ export const Step0_Welcome: React.FC<Props> = ({ data, update, onNext }) => {
         </div>
 
         <div className="text-left text-slate-700 space-y-4 leading-relaxed bg-white p-2 text-lg">
-          <p>
-            你将在次干预中了解到，为什么你改变行力的动机每天甚至每时每刻都在变化。现在将向你介绍一种行为改变理论。该理论认力，改变用药状况的动机分不同的阶段，并解释了在不同阶段动机如何影响你的康复进程。
-          </p>
+           <h2 className="text-xl font-bold text-slate-900 mb-2">构建你的社会支持网络</h2>
+           <p>
+             研究表明，社会支持对你在康复中保持清醒、坚持不用药有很大的作用。这意味着，如果与支持你戒药的人建立高质量的人际关系，你就有可能长期保持清醒状态。
+           </p>
+           <p>
+             你生活中可能这几种人都有，但无论你的支持系统目前怎么样，我们都可用以下方法对它做进一步的构建和调整。
+           </p>
+           <ul className="list-disc list-inside pl-4 space-y-1 bg-sky-50 p-4 rounded-xl border border-sky-100 mt-4 text-sky-900">
+             <li>结交正在康复中的新朋友。</li>
+             <li>减少或切断联络触发你负面情绪或渴求的朋友。</li>
+             <li>多接触那些能帮助你、懂你的朋友和家人。</li>
+             <li>用坚定自信的沟通方式与想要帮助你但不知道如何帮助的人交流。</li>
+             <li>接受婚姻或家庭咨询治疗。</li>
+           </ul>
         </div>
       </div>
 
