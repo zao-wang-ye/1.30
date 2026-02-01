@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -14,6 +14,16 @@ interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = ({ children, currentStep, totalSteps, title, onBack, exerciseLabel }) => {
   const progress = ((currentStep + 1) / totalSteps) * 100;
+  const mainRef = useRef<HTMLElement>(null);
+
+  // Automatically scroll to top when currentStep changes
+  useEffect(() => {
+    if (mainRef.current) {
+      mainRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    // Also try scrolling window for mobile contexts where the layout might overflow the body
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentStep]);
 
   // Derive exercise label from title or pass it. 
   // Since title is like "欢迎", "增强动机" etc, we can use a prop.
@@ -53,7 +63,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentStep, totalStep
       </header>
 
       {/* Content Scrollable Area */}
-      <main className="flex-1 overflow-y-auto p-6 sm:p-10 space-y-10">
+      <main ref={mainRef} className="flex-1 overflow-y-auto p-6 sm:p-10 space-y-10">
         {children}
       </main>
     </div>

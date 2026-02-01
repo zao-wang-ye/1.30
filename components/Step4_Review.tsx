@@ -6,9 +6,10 @@ import { Button } from './Button';
 interface Props {
   data: FormData;
   update: (field: keyof FormData, value: any) => void;
+  onHome: () => void;
 }
 
-export const Step4_Review: React.FC<Props> = ({ data, update }) => {
+export const Step4_Review: React.FC<Props> = ({ data, update, onHome }) => {
   const [submitted, setSubmitted] = useState(false);
   const diff = data.motivationScore2 - data.motivationScore1;
 
@@ -24,7 +25,7 @@ export const Step4_Review: React.FC<Props> = ({ data, update }) => {
            <p className="text-slate-700 mb-8 text-lg"><strong>编号：</strong> {data.userNumber}</p>
            <p className="text-slate-500 text-base italic">您的练习记录已提交。</p>
         </div>
-        <Button onClick={() => window.location.reload()} variant="outline" className="w-full max-w-xs">
+        <Button onClick={onHome} variant="outline" className="w-full max-w-xs">
           返回主页
         </Button>
       </div>
@@ -35,7 +36,7 @@ export const Step4_Review: React.FC<Props> = ({ data, update }) => {
     <div className="space-y-10 animate-in fade-in duration-500">
       <section>
         <p className="text-slate-700 leading-relaxed mb-8 text-lg">
-          现在你更深入地探讨了自己改变的动机，接下来让我们来回顾你之前的动机评分。你有多大动机去采取必要的步骤来改变你的用药状况?<br/>
+          现在你更深入地探讨了自己改变的动机，接下来让我们来回顾你之前的动机评分。你有多大动机去去采取必要的步骤来改变你的用药状况?<br/>
           0 代表完全没动力，10代表有最强的动力，请根据你的情况，从0到10，圈出你的动机水平等级:
         </p>
 
@@ -45,7 +46,7 @@ export const Step4_Review: React.FC<Props> = ({ data, update }) => {
           label=""
         />
 
-        <div className="bg-indigo-50 border border-indigo-100 p-6 rounded-xl text-indigo-900 text-base">
+        <div className="bg-indigo-50 border border-indigo-100 p-6 rounded-xl text-indigo-900 text-base mb-10">
           <h4 className="font-bold mb-3 text-lg">反馈</h4>
           {diff > 0 ? (
             <p className="mb-3">和以前相比，你的评分提高了 <strong>{diff}</strong> 分。那真是个好消息!</p>
@@ -54,38 +55,12 @@ export const Step4_Review: React.FC<Props> = ({ data, update }) => {
           )}
           <p className="mt-2 font-medium">无论评分是否上升，你都应该毫不犹豫地鼓励自己更进一步。提高一分，就增强一分动力。</p>
         </div>
-      </section>
-
-      <section className="bg-white border-t border-slate-100 pt-10">
-        <h3 className="font-bold text-slate-900 mb-5 text-xl">最终确认</h3>
-        <p className="text-slate-600 text-base mb-8 leading-relaxed">
-          恭喜你完成了第一次练习，现在请您再次确认自己的姓名及编号。
-        </p>
         
-        <div className="space-y-6 mb-10 bg-slate-50 p-8 rounded-xl border border-slate-100">
-           <div>
-            <label className="block text-base font-bold text-slate-700 mb-2">你的姓名：</label>
-            <input 
-              type="text" 
-              value={data.userName} 
-              readOnly
-              className="w-full p-4 text-lg border border-slate-200 bg-slate-100 rounded text-slate-500"
-            />
-          </div>
-          <div>
-            <label className="block text-base font-bold text-slate-700 mb-2">你的编号：</label>
-            <input 
-              type="text" 
-              value={data.userNumber} 
-              readOnly
-              className="w-full p-4 text-lg border border-slate-200 bg-slate-100 rounded text-slate-500"
-            />
-          </div>
+        <div className="pt-6 border-t border-slate-100">
+          <Button fullWidth onClick={() => setSubmitted(true)} className="text-lg py-4">
+            提交练习
+          </Button>
         </div>
-
-        <Button fullWidth onClick={() => setSubmitted(true)} className="text-lg py-4">
-          提交练习
-        </Button>
       </section>
     </div>
   );

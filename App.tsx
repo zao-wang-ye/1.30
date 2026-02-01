@@ -206,7 +206,7 @@ export default function App() {
         case 1: return <Step1_Stages data={ex1Data} update={updateEx1} />;
         case 2: return <Step2_DecisionalBalance data={ex1Data} update={updateEx1} />;
         case 3: return <Step3_DeepDive data={ex1Data} update={updateEx1} />;
-        case 4: return <Step4_Review data={ex1Data} update={updateEx1} />; 
+        case 4: return <Step4_Review data={ex1Data} update={updateEx1} onHome={handleBackToHome} />; 
         default: return null;
       }
     } else if (view === 'ex2') {

@@ -32,34 +32,13 @@ export const Exercise2_Review: React.FC<Props> = ({ data, update, onHome }) => {
 
   return (
     <div className="space-y-10 animate-in fade-in duration-500">
-      <section className="bg-white pt-10">
-        <h3 className="font-bold text-slate-900 mb-5 text-xl">最终确认</h3>
-        <p className="text-slate-600 text-base mb-8 leading-relaxed">
-          恭喜你完成了第二次练习，现在请您再次填写自己的姓名及编号，并完成以下问卷。在作答时尽量放松，根据您真实的感受和实际情况作答。
+      <section className="bg-white pt-10 text-center">
+        <h3 className="font-bold text-slate-900 mb-5 text-2xl">准备提交</h3>
+        <p className="text-slate-600 text-lg mb-10 leading-relaxed max-w-lg mx-auto">
+          恭喜你完成了第二次练习！点击下方按钮提交您的练习记录。
         </p>
         
-        <div className="space-y-6 mb-10 bg-slate-50 p-8 rounded-xl border border-slate-100">
-           <div>
-            <label className="block text-base font-bold text-slate-700 mb-2">你的姓名：</label>
-            <input 
-              type="text" 
-              value={data.userName} 
-              readOnly
-              className="w-full p-4 text-lg border border-slate-200 bg-slate-100 rounded text-slate-500"
-            />
-          </div>
-          <div>
-            <label className="block text-base font-bold text-slate-700 mb-2">你的编号：</label>
-            <input 
-              type="text" 
-              value={data.userNumber} 
-              readOnly
-              className="w-full p-4 text-lg border border-slate-200 bg-slate-100 rounded text-slate-500"
-            />
-          </div>
-        </div>
-
-        <Button fullWidth onClick={() => setSubmitted(true)} className="text-lg py-4">
+        <Button fullWidth onClick={() => setSubmitted(true)} className="text-lg py-4 max-w-md mx-auto">
           提交练习
         </Button>
       </section>
